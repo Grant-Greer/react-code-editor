@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import "./App.css";
 import Button from "./components/Button";
-
+import Editor from "./components/Editor";
 function App() {
   const [openedEditor, setOpenedEditor] = useState("html");
-
+  const [html, setHtml] = useState("");
+  const [css, setCss] = useState("");
+  const [js, setJs] = useState("");
   const onTabClick = (editorName) => {
     setOpenedEditor(editorName);
   };
@@ -34,12 +36,12 @@ function App() {
       </div>
 
       <div className="editor-container">
-        {openedEditor === "html" ? (
-          <p>The html editor is open</p>
-        ) : openedEditor === "css" ? (
-          <p>The CSS editor is open!!!!!!</p>
+        {htmlEditorIsOpen ? (
+          <Editor language="xml" value={html} setEditorState={setHtml} />
+        ) : cssEditorIsOpen ? (
+          <Editor language="css" value={css} setEditorState={setCss} />
         ) : (
-          <p>the JavaScript editor is open</p>
+          <Editor language="javascript" value={js} setEditorState={setJs} />
         )}
       </div>
     </div>
