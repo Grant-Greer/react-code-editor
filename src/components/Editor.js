@@ -8,6 +8,7 @@ import "codemirror/theme/night.css";
 import "codemirror/mode/xml/xml";
 import "codemirror/mode/javascript/javascript";
 import "codemirror/mode/css/css";
+
 import { Controlled as ControlledEditorComponent } from "react-codemirror2";
 
 const Editor = ({ language, value, setEditorState }) => {
